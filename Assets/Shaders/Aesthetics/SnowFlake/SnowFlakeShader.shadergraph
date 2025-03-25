@@ -209,6 +209,9 @@
         },
         {
             "m_Id": "3795f92fce994fe9b45d4f43364adade"
+        },
+        {
+            "m_Id": "ae9ea1a7306342bc84d5f73e7640b937"
         }
     ],
     "m_GroupDatas": [
@@ -1213,6 +1216,9 @@
             },
             {
                 "m_Id": "0f8dfe330b3f4ef899f1262e8ef70071"
+            },
+            {
+                "m_Id": "ae9ea1a7306342bc84d5f73e7640b937"
             }
         ]
     },
@@ -5581,7 +5587,7 @@
     "m_ObjectId": "9b71294da3cc4fd4b5a456cf0a22eff5",
     "m_Title": "Mask",
     "m_Position": {
-        "x": -243.0,
+        "x": -242.999755859375,
         "y": -383.0
     }
 }
@@ -6200,6 +6206,40 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "ae9ea1a7306342bc84d5f73e7640b937",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "SurfaceDescription.AlphaClipThreshold",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "bbdcd5a7bd76463ba3684400253e991a"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "SurfaceDescription.AlphaClipThreshold"
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.AddNode",
     "m_ObjectId": "af3000a97f5f4ab0b20a3881aac8aa15",
     "m_Group": {
@@ -6527,6 +6567,21 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "bbdcd5a7bd76463ba3684400253e991a",
+    "m_Id": 0,
+    "m_DisplayName": "Alpha Clip Threshold",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "AlphaClipThreshold",
+    "m_StageCapability": 2,
+    "m_Value": 0.5,
+    "m_DefaultValue": 0.5,
+    "m_Labels": []
 }
 
 {
@@ -8369,9 +8424,9 @@
     "m_SurfaceType": 1,
     "m_ZTestMode": 4,
     "m_ZWriteControl": 0,
-    "m_AlphaMode": 0,
+    "m_AlphaMode": 2,
     "m_RenderFace": 0,
-    "m_AlphaClip": false,
+    "m_AlphaClip": true,
     "m_CastShadows": true,
     "m_ReceiveShadows": true,
     "m_DisableTint": false,

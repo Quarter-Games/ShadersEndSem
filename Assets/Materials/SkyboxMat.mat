@@ -38,30 +38,30 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _AuroraBlend: 3
+    - _AuroraBlend: 2
     - _AuroraOffset: 4
     - _AuroraPower: 4
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _DistortionSpeed: 1.28
     - _GradientOffset: -0.22
-    - _HorizonBlend: 0.3
-    - _Intensity: 1.79
-    - _NadirBlend: 15.5
-    - _NoiseScale: 530
-    - _StarsHeight: 160
+    - _HorizonBlend: 10.4
+    - _Intensity: 7.5
+    - _NadirBlend: 10.7
+    - _NoiseScale: 100
+    - _StarsHeight: 260
     - _StarsIntensity: 450
     - _StarsPower: 55
     - _Tiling: 0
-    - _TwirlStrength: 0.84
-    - _ZenithBlend: 0.4
+    - _TwirlStrength: 0.85
+    - _ZenithBlend: 0.2
     m_Colors:
     - _DistortionMinMax: {r: 10, g: 12, b: 0, a: 0}
-    - _GroundColor: {r: 0.19999999, g: 0.109567836, b: 0.05245281, a: 0}
-    - _HorizonColor: {r: 0.047696643, g: 0.07924521, b: 0.07212134, a: 0}
+    - _GroundColor: {r: 0.12941177, g: 0.22352943, b: 0.23137257, a: 1}
+    - _HorizonColor: {r: 0.25809896, g: 0.35367015, b: 0.3773585, a: 0}
     - _MainLightDirecation: {r: 0, g: 0, b: 0, a: 0}
-    - _ScrollSpeed: {r: 0, g: 0.05, b: 0, a: 0}
-    - _SkyColor: {r: 0.21346919, g: 0.12986112, b: 0.23018861, a: 0}
+    - _ScrollSpeed: {r: 5, g: 0.1, b: 0, a: 0}
+    - _SkyColor: {r: 0.12941177, g: 0.22242403, b: 0.23137255, a: 0}
     - _Tiling: {r: 1, g: 6, b: 0, a: 0}
     - _TwirlOffset: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
