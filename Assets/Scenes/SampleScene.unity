@@ -171,6 +171,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: 04369a237595bb84d9675a3a7c4045cc, type: 3}
   snowRT: {fileID: 0}
+  colorRT: {fileID: 0}
+  color: {r: 1, g: 0.93989503, b: 0, a: 1}
+  isDrawing: 0
   spotSize: 5
 --- !u!54 &66656873
 Rigidbody:
@@ -921,6 +924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: 04369a237595bb84d9675a3a7c4045cc, type: 3}
   snowRT: {fileID: 0}
+  colorRT: {fileID: 0}
   colorValueToAdd: 0.0025
   resolution: 512
 --- !u!23 &811507071
@@ -62757,6 +62761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: 04369a237595bb84d9675a3a7c4045cc, type: 3}
   snowRT: {fileID: 0}
+  colorRT: {fileID: 0}
   colorValueToAdd: 0.0025
   resolution: 512
 --- !u!23 &1051398957
