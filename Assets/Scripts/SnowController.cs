@@ -4,6 +4,7 @@ public class SnowController : MonoBehaviour
 {
     public ComputeShader snowComputeShader;
     public RenderTexture snowRT;
+    public RenderTexture colorRT;
     public float colorValueToAdd;
 
 
@@ -14,6 +15,7 @@ public class SnowController : MonoBehaviour
     private string positionXProperty = "positionX";
     private string positionYProperty = "positionY";
     private string spotSizeProperty = "spotSize";
+    private string drawingColorProperty = "drawingColor";
 
     private string csMainKernel = "CSMain";
     private string fillWhiteKernel = "FillWhite";
@@ -25,7 +27,8 @@ public class SnowController : MonoBehaviour
     private void Awake()
     {
         CreateRenderTexture();
-        SetRTColorToWhite();
+        SetRTColorToWhite(snowRT);
+        SetRTColorToWhite(colorRT);
         SetMaterialTexture();
         InvokeRepeating(nameof(AddSnowLayer), 0.1f, 0.1f);
         ExtendBoundsOfMesh();
@@ -36,24 +39,28 @@ public class SnowController : MonoBehaviour
         snowRT = new RenderTexture(resolution, resolution, 24);
         snowRT.enableRandomWrite = true;
         snowRT.Create();
+        colorRT = new RenderTexture(resolution, resolution, 24);
+        colorRT.enableRandomWrite = true;
+        colorRT.Create();
     }
 
-    void SetRTColorToWhite()
+    void SetRTColorToWhite(RenderTexture text)
     {
         int kernel_handle = snowComputeShader.FindKernel(fillWhiteKernel);
-        snowComputeShader.SetTexture(kernel_handle, snowImageProperty, snowRT);
+        snowComputeShader.SetTexture(kernel_handle, snowImageProperty, text);
         snowComputeShader.SetFloat(colorValueProperty, colorValueToAdd);
         snowComputeShader.SetFloat(resolutionProperty, resolution);
         snowComputeShader.SetFloat(positionXProperty, 0);
         snowComputeShader.SetFloat(positionYProperty, 0);
         snowComputeShader.SetFloat(spotSizeProperty, 0);
-        snowComputeShader.Dispatch(kernel_handle, snowRT.width / 8, snowRT.height / 8, 1);
+        snowComputeShader.Dispatch(kernel_handle, text.width / 8, text.height / 8, 1);
     }
 
     void SetMaterialTexture()
     {
         meshRenderer = GetComponent<MeshRenderer>();
         meshRenderer.material.SetTexture("_PathTexture", snowRT);
+        meshRenderer.material.SetTexture("_ColorTexture", colorRT);
     }
 
     void AddSnowLayer()
@@ -61,6 +68,7 @@ public class SnowController : MonoBehaviour
         int kernel_handle = snowComputeShader.FindKernel(csMainKernel);
         snowComputeShader.SetTexture(kernel_handle, snowImageProperty, snowRT);
         snowComputeShader.SetFloat(colorValueProperty, colorValueToAdd);
+        snowComputeShader.SetFloats(drawingColorProperty, new float[] { colorValueToAdd, colorValueToAdd, colorValueToAdd, colorValueToAdd });
         snowComputeShader.SetFloat(resolutionProperty, resolution);
         snowComputeShader.SetFloat(positionXProperty, 0);
         snowComputeShader.SetFloat(positionYProperty, 0);

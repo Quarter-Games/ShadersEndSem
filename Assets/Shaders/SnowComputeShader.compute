@@ -7,6 +7,7 @@
 // with cs.SetTexture
 RWTexture2D<float4> snowImage;
 float colorValueToAdd;
+float4 drawingColor;
 float resolution;
 float positionX;
 float positionY;
@@ -15,28 +16,33 @@ float spotSize;
 [numthreads(8, 8, 1)]
 void CSMain(uint3 id : SV_DispatchThreadID)
 {
-	snowImage[id.xy] += float4(colorValueToAdd, colorValueToAdd, colorValueToAdd, colorValueToAdd);
+    snowImage[id.xy] += float4(colorValueToAdd, colorValueToAdd, colorValueToAdd, colorValueToAdd);
 }
 
 [numthreads(8, 8, 1)]
 void FillWhite(uint3 id : SV_DispatchThreadID)
 {
-	snowImage[id.xy] = float4(1.0, 1.0, 1.0, 1.0);
+    snowImage[id.xy] = float4(1.0, 1.0, 1.0, 1.0);
 }
 
 [numthreads(8, 8, 1)]
 void DrawSpot(uint3 id : SV_DispatchThreadID)
 {
-	float x = id.x / resolution;
-	float y = id.y / resolution;
-	float value;
+    float x = id.x / resolution;
+    float y = id.y / resolution;
+    float value;
 
-	value = sqrt(((x - positionX / resolution) * (x - positionX / resolution) + (y - positionY / resolution) * (y - positionY / resolution))) * 100;
+    value = (sqrt(((x - positionX / resolution) * (x - positionX / resolution) + (y - positionY / resolution) * (y - positionY / resolution))) * 100);
 
-	if (value < spotSize)
-	{
-		if (value / spotSize > snowImage[id.xy].x) return;
-
-		snowImage[id.xy] = float4(value, value, value, value) / spotSize;
-	}
+    if (value < spotSize)
+    {
+        if (value / spotSize > snowImage[id.xy].x)
+            return;
+        value = value / spotSize;
+        if (drawingColor.x == 0)
+        {
+            drawingColor = float4(value, value, value, value);
+        }
+        snowImage[id.xy] = drawingColor;
+    }
 }
