@@ -46,8 +46,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _ColorButton: {r: 0.78431374, g: 0.827451, b: 0.8901961, a: 0}
-    - _ColorTop: {r: 2, g: 2, b: 2, a: 0}
+    - _ColorButton: {r: 0.39215687, g: 0.4137255, b: 0.44509804, a: 0}
+    - _ColorTop: {r: 1, g: 1, b: 1, a: 0}
     - _SnowHeight: {r: 0, g: 1.04, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
