@@ -1218,7 +1218,7 @@
     },
     "m_PreviewData": {
         "serializedMesh": {
-            "m_SerializedMesh": "{\"mesh\":{\"instanceID\":0}}",
+            "m_SerializedMesh": "{\"mesh\":{\"fileID\":10210,\"guid\":\"0000000000000000e000000000000000\",\"type\":0}}",
             "m_Guid": ""
         },
         "preventRotation": false
@@ -5581,8 +5581,8 @@
     "m_ObjectId": "9b71294da3cc4fd4b5a456cf0a22eff5",
     "m_Title": "Mask",
     "m_Position": {
-        "x": -243.199951171875,
-        "y": -384.0
+        "x": -243.0,
+        "y": -383.0
     }
 }
 
