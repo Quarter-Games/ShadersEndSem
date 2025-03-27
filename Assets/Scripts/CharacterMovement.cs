@@ -4,10 +4,12 @@ public class CharacterMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     private Rigidbody rb;
+    [SerializeField] GameObject meteorVFX;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        meteorVFX.SetActive(false);
     }
 
     void Update()
@@ -23,6 +25,15 @@ public class CharacterMovement : MonoBehaviour
         {
             Quaternion targetRotation = Quaternion.LookRotation(move);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            meteorVFX.SetActive(true);
+        }
+        else
+        {
+            meteorVFX.SetActive(false);
         }
     }
 }
