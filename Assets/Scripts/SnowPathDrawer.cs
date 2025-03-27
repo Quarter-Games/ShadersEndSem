@@ -17,7 +17,8 @@ public class SnowPathDrawer : MonoBehaviour
     private string drawSpotKernel = "DrawSpot";
     [SerializeField]
     [ColorUsage(true, true)] Color color = Color.black;
-    [SerializeField] bool isDrawing = false;
+    public bool isDrawing = false;
+
 
     private Vector2Int position = new Vector2Int(256, 256);
     public float spotSize = 5f;
@@ -73,5 +74,25 @@ public class SnowPathDrawer : MonoBehaviour
         snowComputeShader.SetFloat(positionYProperty, position.y);
         snowComputeShader.SetFloat(spotSizeProperty, spotSize);
         snowComputeShader.Dispatch(kernel_handle, isDrawing ? colorRT.width : snowRT.width / 8, isDrawing ? colorRT.height : snowRT.height / 8, 1);
+    }
+
+    public void drawing(bool isDrawing)
+    {
+        this.isDrawing = isDrawing;
+    }
+
+    public void ColorRed(float R)
+    {
+        color.r = R;
+    }
+
+    public void ColorGreen(float G)
+    {
+        color.g = G;
+    }
+
+    public void ColorBlue(float Blue)
+    {
+        color.b = Blue;
     }
 }
