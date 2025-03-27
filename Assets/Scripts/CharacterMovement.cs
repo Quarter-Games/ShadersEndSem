@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -6,10 +7,13 @@ public class CharacterMovement : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] GameObject meteorVFX;
 
+    VisualEffect vfx;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        meteorVFX.SetActive(false);
+        vfx = meteorVFX.GetComponent<VisualEffect>();
+        vfx.pause = true;
     }
 
     void Update()
@@ -26,14 +30,14 @@ public class CharacterMovement : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(move);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
         }
-
-        if (Input.GetMouseButton(0))
+        if(Input.GetMouseButtonDown(0))
         {
-            meteorVFX.SetActive(true);
+            vfx.pause = false;
+            vfx.Play();
         }
-        else
+        else if (Input.GetMouseButtonUp(0))
         {
-            meteorVFX.SetActive(false);
+            vfx.Stop();
         }
     }
 }
